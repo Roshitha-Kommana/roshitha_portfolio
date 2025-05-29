@@ -1,0 +1,183 @@
+import React from 'react';
+import { ReactTyped } from 'react-typed';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
+const Hero = () => {
+  return (
+    <section className="text-white min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-12">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left side: Typed text + description + buttons + social */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col gap-6 text-center md:text-left"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            I am a{' '}
+            <span className="text-primary">
+              <ReactTyped
+                strings={[
+                  'Web Developer',
+                  'AI &amp; ML Explorer',
+                  'Full-Stack Developer',
+                  'Software Engineer'
+                ]}
+                typeSpeed={70}
+                backSpeed={40}
+                loop
+                showCursor={true}
+                cursorChar="|"
+                smartBackspace={true}
+              />
+            </span>
+          </h1>
+
+          <p className="text-base sm:text-lg text-gray-300 max-w-xl mx-auto md:mx-0">
+            Enhancing digital experiences that are smooth, scalable, and made to impress.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary px-6 py-2 rounded shadow hover:bg-primary-dark transition"
+            >
+              View Resume
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="border border-primary px-6 py-2 rounded hover:bg-primary hover:text-white transition"
+            >
+              Download Resume
+            </a>
+          </div>
+
+          <div className="flex gap-6 text-2xl sm:text-3xl text-gray-400 justify-center md:justify-start mt-4">
+            <a
+              href="https://github.com/Roshitha-Kommana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://linkedin.com/in/roshitha-kommana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              <FaInstagram />
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Right side: Profile image */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex justify-center"
+        >
+          <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80">
+            {/* Bottom Layer - Slightly rotated dark background card */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-800 rounded-[25px] rotate-[10deg] z-0 shadow-2xl scale-110" />
+
+            {/* Middle Layer - Slight offset white base to create depth */}
+            <div className="absolute inset-0 bg-white rounded-[25px] rotate-[-3deg] z-10 shadow-md scale-105" />
+
+            {/* Top Layer - Actual profile image */}
+            <img
+              src="/profile.jpg"
+              alt="Profile"
+              className="relative w-full h-full object-cover rounded-[25px] z-20 shadow-lg border-4 border-white"
+            />
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+
+
+
+
+
+/// education.jsx
+
+
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const educationData = [
+  {
+    id: 3,
+    institute: 'Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    course: 'B.Tech in CSE',
+    year: '2022 - 2026',
+    score: 'CGPA: 8.53',
+  },
+  {
+    id: 2,
+    institute: 'Sri Chaitanya Junior College',
+    course: 'Intermediate - MPC',
+    year: '2020 - 2022',
+    score: '74.8%',
+  },
+  {
+    id: 1,
+    institute: 'Sri Chaitanya Techno School',
+    course: 'SSC',
+    year: '2019 - 2020',
+    score: '99.8%',
+  },
+];
+
+const Education = () => {
+  return (
+    <section
+      id="education"
+      className="relative max-w-4xl mx-auto py-20 px-4 bg-[#0b0f19] text-white"
+    >
+      <h2 className="text-4xl font-bold mb-8 text-center text-purple-400">Education</h2>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+        className="bg-[#111827] p-5 rounded-2xl shadow-xl hover:shadow-purple-500/30"
+      >
+        <div className="space-y-6">
+          {educationData.map(({ id, course, institute, year, score }) => (
+            <div key={id} className="border-b border-gray-700 pb-4 last:border-b-0 last:pb-0">
+              <h3 className="text-xl font-semibold text-purple-400">{course}</h3>
+              <p className="text-gray-300">{institute}</p>
+              <p className="text-gray-400 italic">{year}</p>
+              <p className="text-white font-medium">{score}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Education;
+
