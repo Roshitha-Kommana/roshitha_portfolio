@@ -22,7 +22,7 @@ const AppRoutes = () => {
     <Route
       path="/"
       element={
-        <div className="min-h-screen bg-gradient-to-br from-[#636FA4] to-[#E8CBC0] text-white">
+        <div className="min-h-screen bg-gradient-to-br from-[#636FA4] to-[#E8CBC0] text-white overflow-x-hidden overflow-y-auto">
           <Hero />
           <About />
           <Education />
