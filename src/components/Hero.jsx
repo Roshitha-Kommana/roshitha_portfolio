@@ -110,7 +110,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ y: -6, rotate: 1 }}
               transition={{ type: 'spring', stiffness: 120 }}
-              src="/profile_1.jpg"
+              src="/profile.jpg"
               alt="Profile"
               className="relative w-full h-full object-cover rounded-[25px] z-20 shadow-lg border-4 border-white"
             />
